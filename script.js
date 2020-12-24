@@ -88,6 +88,13 @@ var videoContent = document.getElementById('video__content');
 		  },
     });
 
+	 $(document).ready(function(){
+	 	$('.header__burger').click(function(event){
+	 		$('.header__burger, .header-menu__navbar').toggleClass('active');
+	 		$('body').toggleClass('lock');
+	 	});
+	 });
+
 
 
 

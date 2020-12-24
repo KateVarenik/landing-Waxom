@@ -113,9 +113,15 @@
 		/*z-index: 10;*/
 	}
 
+	.header__burger{
+		display: none;
+		cursor: pointer;
+	}
+
 	.logo{
 		display: flex;
 		align-items: center;
+		margin-right: 20px;
 	}
 
 	.logo img{
@@ -163,6 +169,90 @@
 		color: #c7b299;
 	}
 
+	@media	(max-width: 768px){
+		body.lock{
+			overflow: hidden;
+		}
+		.header-menu__logo{
+			margin: 0
+		}
+		.header-menu__logo img{
+			max-width: 50px;
+		}
+		.header-menu__logo p{
+			font-size: 24px;
+		}
+		.header__burger{
+			display: block;
+			position: relative;
+			width: 30px;
+			height: 20px;
+			z-index: 3;
+		}
+		.header__burger span{
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #fff;
+			left: 0;
+			top: 9px;
+			transition: .3s;
+		}
+		.header__burger::before,
+		.header__burger::after{
+			content: '';
+			background-color: #fff;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			left: 0;
+			transition: .3s;
+		}
+		.header__burger::before{
+			top: 0;
+		}
+		.header__burger::after{
+			bottom: 0;
+		}
+		.header__burger.active::before{
+			transform: rotate(45deg);
+			top: 9px;
+		}
+		.header__burger.active::after{
+			transform: rotate(-45deg);
+			bottom: 9px;
+		}
+		.header__burger.active span{
+			transform: scale(0);
+		}
+		.header-menu__navbar{
+			position: fixed;
+			top: 0;
+			left: -100%;
+			width: 50%;
+			height: 100vh;
+			background-color: rgba(0, 0, 0, 0.7);
+			z-index: 2;
+			padding: 100px 0 0 8%;
+			transition: .3s;
+			backdrop-filter: blur(6px);
+			overflow: auto;
+		}
+		.header-menu__navbar ul li{
+			display: block;
+			padding: 13px 11px;
+		}
+		.header-menu__navbar ul li a{
+			font-size: 16px;
+		}
+		.header-menu__navbar.active{
+			left: 0;
+		}
+		.icon-icon-cart{
+			display: none;
+		}
+	}
+
 	.header__content{
 		text-align: center;
 	}
@@ -185,14 +275,14 @@
 	}
 
 	.header__title h2{
-		font-size: 27px;
+		font-size: calc(17px + 10 * ((100vw - 320px) / (1440 - 320)));
 		color: #ffffff;
 		font-weight: 500;
 		margin-bottom: 12px;
 	}
 
 	.header__title h1{
-		font-size: 39px;
+		font-size: calc(24px + 15 * ((100vw - 320px) / (1440 - 320)));
 		color: #ffffff;
 		font-weight: 800;
 		margin-bottom: 15px;
@@ -203,7 +293,7 @@
 		max-width: 400px;
 		font-family: var(--body-font);
 		text-align: center;
-		font-size: 12px;
+		font-size: calc(11px + 1 * ((100vw - 320px) / (1440 - 320)));
 		line-height: 18px;
 		color: #ffffff;
 		font-weight: 300;
@@ -248,20 +338,12 @@
 	}
 
 	.services-item{
-		max-width: 200px;
+		flex: 1 1 200px;
 		text-align: center;
 		position: relative;
 		margin: 10px 15px;
 		padding-bottom: 22px;
 		transition: .4s;
-	}
-
-	.services-item:first-child{
-		margin-left: 0;
-	}
-
-	.services-item:last-child{
-		margin-right: 0;
 	}
 
 	.services-item::after{
@@ -1087,7 +1169,6 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		margin: 30px 33px;
 		margin: calc(15px + 15 * ((100vw - 320px) / (1440 - 320))) calc(15px + 18 * ((100vw - 320px) / (1440 - 320)));
 	}
 
