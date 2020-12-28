@@ -93,6 +93,10 @@ var videoContent = document.getElementById('video__content');
 	 		$('.header__burger, .header-menu__navbar').toggleClass('active');
 	 		$('body').toggleClass('lock');
 	 	});
+
+	 	$('.footer__title').click(function(event){
+	 		$(this).toggleClass('active').next().slideToggle(300);
+	 	});
 	 });
 
 
